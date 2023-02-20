@@ -3,8 +3,12 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3500;
 
-app.use("/", express.static(path.join(__dirname, "/public")));
-//global variable from node to look in the folder we are in
+// Middleware for json:
+app.use(express.json());
+
+// Static middleware:
+app.use("/", express.static(path.join(__dirname, "public")));
+// path.join: global variable from node to look in the folder we are in
 
 app.use("/", require("./routes/root"));
 
