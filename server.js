@@ -41,6 +41,9 @@ app.use("/", require("./routes/root"));
 // Users endpoint:
 app.use("/users", require("./routes/userRoutes"));
 
+// Orders endpoint:
+app.use("/orders", require("./routes/orderRoutes"));
+
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
