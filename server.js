@@ -1,3 +1,6 @@
+require("dotenv").config();
+//console.log(process.env.NODE_ENV);
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -11,6 +14,7 @@ const { logger } = require("./middleware/logger");
 // Our custom middleware imported above:
 app.use(logger);
 
+// Third party middleware to use cors:
 app.use(cors(corsOptions));
 
 // Middleware for json:
