@@ -33,9 +33,13 @@ app.use(cookieParser());
 
 // Static middleware:
 app.use("/", express.static(path.join(__dirname, "public")));
-// path.join: global variable from node to look in the folder we are in
+// [path.join: global variable from node to look in the folder we are in]
 
+// Routing:
 app.use("/", require("./routes/root"));
+
+// Users endpoint:
+app.use("/users", require("./routes/userRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);
