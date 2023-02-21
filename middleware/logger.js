@@ -4,6 +4,8 @@ const fs = require("fs");
 const fsPromises = require("fs").promises;
 const path = require("path");
 
+// Helper:
+
 const logEvents = async (message, logFileName) => {
   const dateTime = format(new Date(), "yyyyMMdd\tHH:mm:ss");
 
@@ -25,8 +27,10 @@ const logEvents = async (message, logFileName) => {
 // Middleware custom:
 
 const logger = (req, res, next) => {
+  // It logs every request that comes in:
   logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, "reqLog.log");
   console.log(`${req.method} ${req.path}`);
+  // It moves to next middleware or to the controller:
   next();
 };
 
