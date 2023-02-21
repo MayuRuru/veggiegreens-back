@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const PORT = process.env.PORT || 3500;
 const { logger } = require("./middleware/logger");
 const { errorHandler } = require("./middleware/errorHandler");
 
 // Our custom middleware imported above:
 app.use(logger);
+
+app.use(cors());
 
 // Middleware for json:
 app.use(express.json());
