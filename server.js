@@ -38,6 +38,9 @@ app.use("/", express.static(path.join(__dirname, "public")));
 // Routing:
 app.use("/", require("./routes/root"));
 
+// Auth:
+app.use("/auth", require("./routes/authRoutes"));
+
 // Users endpoint:
 app.use("/users", require("./routes/userRoutes"));
 
